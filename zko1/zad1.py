@@ -1,25 +1,25 @@
- #!/usr/bin/env python3
-
+#!/usr/bin/env python3
 import os
+import pwd
 
-print("USER PID COMMAND")
+def list_processes():
+       for pid in os.listdir('/proc'):
+              if pid.isdigit():
+                     status = f"/proc/{pid}/status"
+                     comm = f"/proc/{pid}/comm"
 
-for pid in os.listdir('/proc'):
-    if pid.isdigit():
-        with open(f"/proc/{pid}/status") as f:
-            for line in f:
-                if line.startswith("Uid: "):
-                    uid = line.split()[1]
-                    break
-        
-        with open(f"/proc/{pid}/comm") as f:
-            comm = f.readline()
+                     with open(status) as file:
+                            for line in file:
+                                if line.startswith('Uid:'):
+                                    uid = int(line.split()[1])
+                                    break
+                            user = pwd.getpwuid(uid).pw_name
 
-        user = pid
-        with open(f"/etc/passwd") as f:
-            for line in f:
-                parts = line.split(":")
-                if parts[2] == pid:
-                    user = parts[0]
-                    break
-        print(user, pid, comm)
+                     with open(comm) as file:
+                            comm = file.read().strip()
+
+                     print(user, pid, comm)
+
+if __name__ == "__main__":
+    print("USER PID COMMAND")
+    list_processes()

@@ -11,7 +11,7 @@ Uruchamiamy polecenie:
 Dostajemy:
 
 ```bash
-Maximum resident set size (kbytes): 3828
+Maximum resident set size (kbytes): 2856
 ```
 
 To samo dla skryptu Pythona:
@@ -22,11 +22,11 @@ To samo dla skryptu Pythona:
 
 Dostajemy:
 ``` bash
-Maximum resident set size (kbytes): 8436
+Maximum resident set size (kbytes): 8940
 ```
 
 Obliczamy roznice:
 
 ```
-(8436 - 3828) / 3828 * 100% = 120%
+(8788 - 2872) / 2872 * 100% = 205%
 ```
