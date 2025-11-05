@@ -1,4 +1,4 @@
-# Komendy
+# Polecenia
 
 1. Utwórz katalog lab w swoim katalogu domowym.
 
@@ -40,7 +40,7 @@ cat ../../boot.txt
 7. Utwórz puste pliki tekst1.txt, tekst2.txt, tekst3.txt w katalogu lab.
 
 ```bash
-touch tekts1.txt tekst2.txt tekst3.txt
+touch tekst1.txt tekst2.txt tekst3.txt
 ```
 
 8. Skopiuj pliki tekst1.txt, tekst2.txt, tekst3.txt do katalogu lab/dir1/dir2/dir3/ (jednym poleceniem).
@@ -120,7 +120,7 @@ ls -la lab
 20. Wyświetl pliki które mają w nazwie słowo ,,tty’’ z katalogu /dev/, korzystając z polecenia ls oraz grep.
 
 ```bash
-ls /dev/ | grep "tty"
+ls /dev/ | grep tty
 ```
 
 21. Korzystając z man na temat polecenia ls, znajdź sposób na wyświetlenie zawartości folderu lab wraz z podfolderami.
