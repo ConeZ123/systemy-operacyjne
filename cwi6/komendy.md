@@ -50,5 +50,5 @@ awk -F, 'NR>1 { printf "%d\t%d\t%d\t%d\t%s\n", $1,$2,$3,$4,$5}' iris.csv
 
 10. Zmień losowo kolejność wierszy z danymi o irysach i zapisz je w nowym pliku CSV z nagłówkiem.
 ```bash
-(head -n 1 iris.csv && tail -n +2 iris.csv | sort -R) > iris_shuf.csv
+(head -n 1 iris.csv && tail -n +2 iris.csv | sort -R) > iris_sort.csv
 ```
