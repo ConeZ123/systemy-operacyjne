@@ -22,11 +22,11 @@ tail -n +2 iris.csv | sed -e 's/Setosa/1/g' -e 's/Versicolor/2/g' -e 's/Virginic
 ```
 4. Wypisz dostępne rodzaje irysów bez powtórzeń i bez cudzysłowów.
 ```bash
-cut -d ',' -f5 iris.csv | tail -n + 2 | tr -d '"' | sort | uniq
+cut -d ',' -f5 iris.csv | tail -n +2 | tr -d '"' | sort | uniq
 ```
 5. Oblicz sumę wartości dla każdego wiersza.
 ```bash
-awk -F, '{print $1 + $2 + $3 + $4}' iris.csv
+awk -F, ' NR>1 {print $1 + $2 + $3 + $4}' iris.csv
 ```
 6. Oblicz średnią wartość drugiej kolumny (sepal.width).
 ```bash
@@ -34,7 +34,7 @@ awk -F, 'NR>1 {sum +=$2; n++} END {print sum/n}' iris.csv
 ```
 7. Wypisz całą linię, która ma maksymalną wartość czwartej kolumny (petal.width).
 ```bash
-awk -F, 'NR==2 {max=$4; line=$0} NR>2 && $4>max {max=$4; line=$0} END{print line}' iris.csv
+awk -F, 'NR==2 {max=$4; line=$0} NR>2 && $4>max {max=$4; line=$0} END  {print line}' iris.csv
 ```
 8. Wypisz nazwę gatunku Irysa, którego pierwsza kolumna (sepal.length) jest większa niż 7.
 ```bash
