@@ -26,7 +26,7 @@ cut -d ',' -f5 iris.csv | tail -n +2 | tr -d '"' | sort | uniq
 ```
 5. Oblicz sumę wartości dla każdego wiersza.
 ```bash
-awk -F, ' NR>1 {print $1 + $2 + $3 + $4}' iris.csv
+awk -F, 'NR>1 {print $1 + $2 + $3 + $4}' iris.csv
 ```
 6. Oblicz średnią wartość drugiej kolumny (sepal.width).
 ```bash
@@ -45,7 +45,7 @@ awk -F, 'NR>1 && $1>7 { print$5 }' iris.csv
 5       4       1       0       "Setosa"
 ```
 ```bash
-awk -F, 'NR>1 { printf "%d\t%d\t%d\t%d\t%s\n", $1,$2,$3,$4,$5}' iris.csv
+awk -F, 'NR==1 {print $0} NR>1 {printf "%d\t%d\t%d\t%d\t%s\n",$1,$2,$3,$4,$5}' iris.csv
 ```
 
 10. Zmień losowo kolejność wierszy z danymi o irysach i zapisz je w nowym pliku CSV z nagłówkiem.
