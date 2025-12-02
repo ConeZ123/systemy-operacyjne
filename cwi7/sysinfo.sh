@@ -1,7 +1,6 @@
 #!/bin/bash
 
 cpu() {
-       # na vm nie ma odpowiedniego wpisu w /proc/cpuinfo zeby pobrac info o procesorze
        echo "CPU: " $(cat /proc/cpuinfo | grep processor | cut -d ':' -f 2)
 }
 
