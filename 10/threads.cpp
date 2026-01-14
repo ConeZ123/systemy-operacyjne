@@ -55,7 +55,7 @@ int main(int argc, char* argv[]) {
     ctx.content.assign(
         std::istreambuf_iterator<char>(file),
         std::istreambuf_iterator<char>()
-    );
+    );  
 
     size_t length = ctx.content.size();
     size_t chunkSize = length / threadCount;
@@ -65,7 +65,7 @@ int main(int argc, char* argv[]) {
     for (unsigned int i = 0; i < threadCount; ++i) {
         size_t begin = i * chunkSize;
         size_t end = (i == threadCount - 1) ? length : begin + chunkSize;
-        threads.emplace_back(countLetters, std::ref(ctx), begin, end);
+        threads.push_back(std::thread(countLetters, std::ref(ctx), begin, end));
     }
 
     for (auto& t : threads) {
